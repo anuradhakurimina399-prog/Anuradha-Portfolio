@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-midnight-bg: #08080D;
+  --color-midnight-surface: #0D0D15;
+  --color-midnight-section: #101019;
+  --color-midnight-elevated: #151520;
+  --color-midnight-card: #14141F;
+
+  --color-lavender-primary: #B79AFF;
+  --color-lavender-secondary: #E0B7D9;
+  --color-lavender-cool: #A9B7FF;
+
+  --color-text-main: #F6F3FA;
+  --color-text-secondary: #AAA5B8;
+  --color-text-muted: #777287;
+}
+
+@layer base {
+  * {
+    border-color: rgba(183, 154, 255, 0.12);
+  }
+
+  body {
+    background-color: #08080D;
+    color: #F6F3FA;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom subtle ambient backdrop glow */
+.bg-radial-lavender {
+  background: radial-gradient(circle at 50% 0%, rgba(183, 154, 255, 0.12) 0%, rgba(8, 8, 13, 0) 70%);
+}
+
+.bg-radial-accent {
+  background: radial-gradient(circle at 100% 10%, rgba(224, 183, 217, 0.08) 0%, rgba(8, 8, 13, 0) 50%);
+}
+
+/* Subtle border glow on hover */
+.glow-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-card:hover {
+  border-color: rgba(183, 154, 255, 0.28);
+  box-shadow: 0 10px 30px -10px rgba(183, 154, 255, 0.12);
+}
+
+/* Print styles for Clean Resume view */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
